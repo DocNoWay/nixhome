@@ -3,7 +3,9 @@
 [![NixOS 21.05](https://img.shields.io/badge/NixOS-v21.05-blue.svg?style=flat-square&logo=NixOS&logoColor=white)](https://nixos.org)
 
 Stolen from:
-![KubqoA](https://github.com/KubqoA/dotfiles.git)
+[KubqoA](https://github.com/KubqoA/dotfiles.git)
+Thanks for sharing. Helped me a a lot.
+
 
 ## Useful links:
 * [Nixpkgs Functions reference](https://nixos.org/manual/nixpkgs/stable/#chap-functions)
