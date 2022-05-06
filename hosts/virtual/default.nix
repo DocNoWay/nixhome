@@ -24,7 +24,6 @@ in {
 
   imports = [
     ./hardware-configuration.nix
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t440s
   ];
 
   #TODO temporary fixes
@@ -39,54 +38,45 @@ in {
       sansSerif = [ "SF Pro Text" ];
     };
   };
-  services.getty.autologinUser = "jarbet";
+  services.getty.autologinUser = "andreas";
 
   boot.kernel.sysctl = {
     "fs.inotify.max_user_watches" = 524288;
   };
-  # Fix an issue with a touchpad, where it would sometimes stop working
-  # after suspend
-  boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
-
-  time.timeZone = "Europe/Bratislava";
+  time.timeZone = "Europe/Berlin";
 
   environment.systemPackages = with pkgs; [ efibootmgr ];
 
   # Various packages that don't fit into any specific module
   user.packages = with pkgs; [
     # Dev
-    httpie wrk heroku exercism jq _.tableplus _.vscode-insiders
-    shellcheck
 
     # Communication
-    slack zoom-us brave
 
     # Media
     imv transmission-gtk spotify
 
     # Utils
-    ripgrep bat libappindicator pfetch unzip killall ncdu tree
+    ripgrep bat libappindicator pfetch unzip killall ncdu tree pidof
 
-    # Others
-    _.athens
   ];
 
   modules = {
     shell = {
       git = enable;
       gpg = enable;
-      neovim = {
+      vim = {
         enable = true;
         lsp.servers = [
-          "clangd"
+          "elisp"
           "clojure_lsp"
           "rnix"
-          "tsserver"
+          "python"
         ];
       };
       pass = enable;
       ssh = enable;
-      zsh = enable;
+      bash = enable;
     };
     desktop = {
       gtk.enable = true;
@@ -101,19 +91,16 @@ in {
         wlsunset = enable;
       };
       apps = {
-        chromium = enable;
+        qutebrowser= enable;
         firefox = enable;
-        mpv = enable;
-        vscode = enable;
+        mpd = enable;
         zathura = enable;
       };
     };
     dev = {
       direnv = enable;
 
-      c = enable;
       clojure = enable;
-      ledger = enable;
       nix = enable;
     };
     hardware = {
@@ -130,19 +117,12 @@ in {
     };
     services = {
       networkmanager = enable;
-      postgresql = {
-        enable = true;
-        databases = [ "covid" ];
-      };
-      onedrive = enable;
     };
   };
 
   # Various other services that don't live in modules
   services = {
     printing = enable;
-    tlp = enable;
     udisks2 = enable;
-    fprintd = enable;
   };
 }

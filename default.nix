@@ -1,3 +1,4 @@
+;;; default.nix -*- lexical-binding: t; -*-
 { config, inputs, lib, pkgs, ... }:
 
 let
@@ -30,10 +31,10 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    curl git wget neovim
+    curl git wget vim
   ];
 
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "de_DE.UTF-8";
   
-  system.stateVersion = lib.mkDefault "21.05";
+  system.stateVersion = lib.mkDefault "21.11";
 }

@@ -17,8 +17,7 @@
     # NixOs 21.05
     nixpkgs.url = "nixpkgs/nixos-21.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-    home-manager.url = "github:nix-community/home-manager/release-21.05";
+    home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Extras

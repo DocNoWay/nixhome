@@ -87,8 +87,8 @@ in {
         };
         gaps.inner = 20;
         input."type:keyboard" = {
-          xkb_layout = "us,sk";
-          xkb_variant = ",qwerty";
+          xkb_layout = "de";
+          xkb_variant = ",nodeadkeys";
           xkb_options = "grp:alt_caps_toggle";
           xkb_numlock = "enabled";
         };

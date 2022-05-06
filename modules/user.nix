@@ -7,7 +7,7 @@ with lib;
       type = attrs;
       default = {};
       example = {
-        packages = [ pkgs.neovim ];
+        packages = [ pkgs.vim ];
       };
       description = ''
         An alias for passing option to the default user via the option
@@ -68,7 +68,7 @@ with lib;
     # Defines the default user.
     user =
       let
-        defaultName = "jarbet";
+        defaultName = "andreas";
         user = builtins.getEnv "USER";
         name = if elem user [ "" "root" ] then defaultName else user;
       in {

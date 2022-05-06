@@ -6,9 +6,9 @@ let
 in {
   options.modules.shell.git = {
     enable = _.mkBoolOpt false;
-    userName = _.mkOpt' types.str "Jakub Arbet";
-    userEmail = _.mkOpt' types.str "hi@jakubarbet.me";
-    signingKey = _.mkOpt' types.str "990D46A4F8E4A895ACA14D6D883E485DBD16738C";
+    userName = _.mkOpt' types.str "DocNoWay";
+    userEmail = _.mkOpt' types.str "mail@heavycross.de";
+    signingKey = _.mkOpt' types.str "89356089B66FAACDF6C7AC4B577DC89F91FAAF52";
   };
 
   config = mkIf cfg.enable {
@@ -21,10 +21,7 @@ in {
       ignores = [
         "/.vscode"
         "/.lsp"
-        ".nrepl-port"
         ".direnv"
-        "/.clangd"
-        "compile_commands.json"
       ];
       aliases = {
         last = "log -1 HEAD";

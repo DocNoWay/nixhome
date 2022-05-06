@@ -8,7 +8,7 @@ let nixBin =
 in mkShell {
   buildInputs = [
     git
-    nix-zsh-completions
+    nix-bash-completions
   ];
   shellHook = ''
     export FLAKE="$(pwd)"
